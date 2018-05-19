@@ -36,8 +36,9 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py \
 
 RUN pip install numpy scipy jupyter virtualenvwrapper matplotlib && rm -r ~/.cache/pip/*
 
-# Install oh-my-zsh
+# Install oh-my-zsh and change shell
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+RUN chsh -s /usr/bin/zsh
 
 # Setup virtualenvwrapper
 ENV VIRTUALENVWRAPPER_PYTHON /usr/bin/python3
