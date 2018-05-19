@@ -23,8 +23,8 @@ RUN pip install numpy scipy scikit-learn pandas jupyter virtualenvwrapper
 # PyTorch 0.4.0
 RUN pip install http://download.pytorch.org/whl/cu91/torch-0.4.0-cp35-cp35m-linux_x86_64.whl torchvision
 
-RUN mkdir /home/bartol
-ENV HOME /home/bartol
+RUN mkdir /home/user
+ENV HOME /home/user
 
 # Install oh-my-zsh
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
@@ -37,5 +37,5 @@ RUN echo "source /usr/local/bin/virtualenvwrapper.sh" >> $HOME/.zshrc
 
 COPY .tmux.conf $HOME
 
-WORKDIR /home/bartol
+WORKDIR $HOME 
 ENTRYPOINT /bin/zsh
