@@ -9,3 +9,6 @@ Dockerized OS setup for Data Science purposes.
 3. [Install](https://github.com/NVIDIA/nvidia-docker) `nvidia-docker`.
 4. Pull the `data-science-docker` image
 5. Use `nvida-docker` instead of the `docker` to run the container
+
+### Running example
+`nvidia-docker run --name ml_test -p 10000-11000:10000-11000 -v /path/host:/path/container -it barty777/data-science-docker`
