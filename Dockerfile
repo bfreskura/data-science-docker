@@ -34,7 +34,13 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py \
     && python3 /tmp/get-pip.py \
     && rm /tmp/get-pip.py
 
-RUN pip install numpy scipy jupyter virtualenvwrapper matplotlib && rm -r ~/.cache/pip/*
+RUN pip install \
+        numpy \
+        scipy \
+        jupyter \
+        virtualenvwrapper \
+        matplotlib \
+    && rm -r ~/.cache/pip/*
 
 # Install oh-my-zsh
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
