@@ -42,8 +42,9 @@ RUN pip install \
         matplotlib \
     && rm -r ~/.cache/pip/*
 
-# Install oh-my-zsh
+# Install oh-my-zsh and change shell
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
+RUN chsh -s /usr/bin/zsh
 
 # Setup virtualenvwrapper
 ENV VIRTUALENVWRAPPER_PYTHON /usr/bin/python3
@@ -61,7 +62,6 @@ RUN wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
     && cmake -DBUILD_TIFF=ON \
     -DBUILD_opencv_java=OFF \
     -DWITH_CUDA=OFF \
-    -DENABLE_AVX=ON \
     -DWITH_OPENGL=ON \
     -DWITH_OPENCL=ON \
     -DWITH_IPP=ON \
