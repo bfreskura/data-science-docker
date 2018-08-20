@@ -1,5 +1,5 @@
-FROM nvidia/cuda:9.0-runtime-ubuntu16.04
-FROM nvidia/cuda:9.0-cudnn7-runtime-ubuntu16.04
+FROM nvidia/cuda:9.2-runtime-ubuntu16.04
+FROM nvidia/cuda:9.2-cudnn7-runtime-ubuntu16.04
 
 MAINTAINER Bartol Freškura <freskura.bartol@gmail.com>
 
@@ -40,6 +40,7 @@ RUN pip install \
         jupyter \
         virtualenvwrapper \
         matplotlib \
+        flake8 \
     && rm -r ~/.cache/pip/*
 
 # Install oh-my-zsh and change shell
